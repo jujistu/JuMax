@@ -47,13 +47,13 @@ const HomeScreen: FunctionComponent = () => {
 
   const getUpcomingMovies = async () => {
     const data = await fetchUpcomingMovies();
-    console.log('upcoming', data);
+    // console.log('upcoming', data);
     if (data && data.results) setUpcoming(data.results);
   };
 
   const getTopRatedMovies = async () => {
     const data = await fetchTopRatedMovies();
-    console.log('topRated', data);
+    // console.log('topRated', data);
     if (data && data.results) setTopRated(data.results);
   };
 

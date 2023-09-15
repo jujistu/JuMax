@@ -23,6 +23,7 @@ import {
   fallbackMoviePoster,
   fetchMovieCredits,
   fetchMovieDetails,
+  fetchSimilarMovies,
   image500w,
 } from '../api/MovieDb';
 
@@ -57,11 +58,17 @@ const MovieScreen: FC = () => {
     if (data && data.cast) setCast(data.cast);
   };
 
+  //get movie details
+  const getSimilarMovies = async (id: number) => {
+    const data = await fetchSimilarMovies(id);
+    if (data && data.results) setSimilarMovies(data.results);
+  };
+
   useEffect(() => {
-    console.log('item', item?.id);
     setLoading(true);
     getMovieDetails(item?.id);
     getMovieCredits(item?.id);
+    getSimilarMovies(item?.id);
   }, [item]);
 
   return (
@@ -154,14 +161,16 @@ const MovieScreen: FC = () => {
 
       {/* cast  */}
 
-      <Cast navigation={navigation} cast={cast} />
+      {cast.length > 0 && <Cast navigation={navigation} cast={cast} />}
 
       {/* similar movies */}
-      <MovieList
-        title='Similar Movies'
-        hideSeeAll={true}
-        data={similarMovies}
-      />
+      {similarMovies.length > 0 && (
+        <MovieList
+          title='Similar Movies'
+          hideSeeAll={true}
+          data={similarMovies}
+        />
+      )}
     </ScrollView>
   );
 };

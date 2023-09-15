@@ -8,6 +8,7 @@ const apiBaseUrl = 'https://api.themoviedb.org/3';
 const trendingMoviesEndpoint = `${apiBaseUrl}/trending/movie/day?api_key=${apiKey}`;
 const upcomingMoviesEndpoint = `${apiBaseUrl}/movie/upcoming?api_key=${apiKey}`;
 const topRatedMoviesEndpoint = `${apiBaseUrl}/movie/top_rated?api_key=${apiKey}`;
+const searchMoviesEndpoint = `${apiBaseUrl}/search/movie?api_key=${apiKey}`;
 
 //dynamic endpoints
 const movieDetailsEndpoint = (id: number) =>
@@ -18,6 +19,12 @@ const movieCreditEndpoint = (id: number) =>
 
 const movieSimilarEndpoint = (id: number) =>
   `${apiBaseUrl}/movie/${id}/similar?api_key=${apiKey}`;
+
+const personDetailsEndpoint = (id: number) =>
+  `${apiBaseUrl}/person/${id}?api_key=${apiKey}`;
+
+const personMoviesEndpoint = (id: number) =>
+  `${apiBaseUrl}/person/${id}/movie_credits?api_key=${apiKey}`;
 
 //Image Poster sizes
 export const image500w = (path: string) =>
@@ -36,7 +43,7 @@ export const fallbackPersonImage =
 export const fallbackMoviePoster =
   'https://static.spotapps.co/assets/widgets/loading.gif';
 
-//
+//api function
 const apiCall = async (endpoint: string, params?: any) => {
   const options = {
     method: 'GET',
@@ -84,4 +91,19 @@ export const fetchMovieCredits = (id: number) => {
 //fetch similar movies
 export const fetchSimilarMovies = (id: number) => {
   return apiCall(movieSimilarEndpoint(id));
+};
+
+//fetch person details
+export const fetchPersonDetails = (id: number) => {
+  return apiCall(personDetailsEndpoint(id));
+};
+
+//fetch person movies
+export const fetchPersonMovies = (id: number) => {
+  return apiCall(personMoviesEndpoint(id));
+};
+
+//search movie param
+export const searchMovies = (params: {}) => {
+  return apiCall(searchMoviesEndpoint, params);
 };

@@ -8,8 +8,6 @@ import { Prop as MovieProps } from '../screens/MovieScreen';
 import { fallbackMoviePoster, image185w } from '../api/MovieDb';
 
 const MovieList: FC<MovieListProps> = ({ data, title, hideSeeAll }) => {
-  let movieName = 'Ant-Man and the Wasp: Quantumania';
-
   const navigation = useNavigation<MovieProps['navigation']>();
 
   return (

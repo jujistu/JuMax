@@ -11,7 +11,7 @@ const TrendingMovies: FC<TrendingMovie> = ({ data }) => {
 
   return (
     <View className='mt-8'>
-      <Text className='text-white text-xl mx-4 mb-5'>Trending</Text>
+      <Text className='text-white text-2xl mx-4 mb-5'>Trending</Text>
       <Carousel
         renderItem={({ item }: any) => (
           <MovieCard
