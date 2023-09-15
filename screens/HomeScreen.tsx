@@ -71,7 +71,7 @@ const HomeScreen: FunctionComponent = () => {
         <View className='flex-row justify-between items-center mx-4'>
           <BarMenuIcon size={30} color='white' strokeWidth={2} />
           <Text className='text-white text-3xl font-bold'>
-            <Text style={styles.text}>M</Text>ovies
+            <Text style={styles.text}>Ju</Text>Max
           </Text>
           <TouchableOpacity onPress={() => navigation.navigate('Search')}>
             <MagnifyingIcon size={30} strokeWidth={2} color='white' />

@@ -21,6 +21,7 @@ import {
   fetchPersonMovies,
   image342w,
 } from '../api/MovieDb';
+import { StatusBar } from 'expo-status-bar';
 
 const ios = Platform.OS === 'ios';
 
@@ -73,6 +74,7 @@ const PersonScreen: FC = () => {
           verticalMargin
         }
       >
+        <StatusBar style='light' />
         <TouchableOpacity
           style={styles.background}
           className='rounded-xl ml-3 p-1'

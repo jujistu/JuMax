@@ -26,6 +26,7 @@ import {
   fetchSimilarMovies,
   image500w,
 } from '../api/MovieDb';
+import { StatusBar } from 'expo-status-bar';
 
 export type Prop = StackScreenProps<RootStackParamList, 'Movie'>;
 
@@ -84,6 +85,7 @@ const MovieScreen: FC = () => {
             topMargin
           }
         >
+          <StatusBar style='dark' />
           <TouchableOpacity
             style={styles.background}
             className='rounded-xl ml-3 p-1'
