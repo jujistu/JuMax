@@ -27,6 +27,7 @@ import {
   image500w,
 } from '../api/MovieDb';
 import { StatusBar } from 'expo-status-bar';
+import { marginBT } from './HomeScreen';
 
 export type Prop = StackScreenProps<RootStackParamList, 'Movie'>;
 
@@ -78,7 +79,7 @@ const MovieScreen: FC = () => {
       className='flex-1 bg-neutral-900'
     >
       {/* back button and movie poster */}
-      <View className=''>
+      <View className={`${marginBT}`}>
         <SafeAreaView
           className={
             'absolute z-20 w-full flex-row justify-between items-center px-4' +

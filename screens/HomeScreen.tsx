@@ -5,6 +5,7 @@ import {
   Platform,
   TouchableOpacity,
   ScrollView,
+  StatusBar as NativeBar,
 } from 'react-native';
 import React, { FunctionComponent, useEffect, useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
@@ -24,9 +25,13 @@ import {
   fetchTrendingMovies,
   fetchUpcomingMovies,
 } from '../api/MovieDb';
-import { G } from 'react-native-svg';
 
 const ios = Platform.OS === 'ios';
+
+// const height = NativeBar.currentHeight;
+// console.log('height', height);
+
+export const marginBT = ios ? '-mb-2' : 'mb-2 mt-12';
 
 export type Prop = StackScreenProps<RootStackParamList, 'Home'>;
 
@@ -64,11 +69,11 @@ const HomeScreen: FunctionComponent = () => {
   }, []);
 
   return (
-    <View className='flex-1 bg-neutral-800'>
+    <View className={'flex-1 bg-neutral-800'}>
       {/* searchBar and logo */}
-      <SafeAreaView className={ios ? '-mb-2' : 'mb-3'}>
+      <SafeAreaView className={`${marginBT}`}>
         <StatusBar style='light' />
-        <View className='flex-row justify-between items-center mx-4'>
+        <View className={'flex-row justify-between items-center mx-4'}>
           <BarMenuIcon size={30} color='white' strokeWidth={2} />
           <Text className='text-white text-3xl font-bold'>
             <Text style={styles.text}>Ju</Text>Max

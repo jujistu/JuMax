@@ -17,13 +17,8 @@ import { useNavigation } from '@react-navigation/native';
 import { height, width } from '../components/MovieCard';
 import Loading from '../components/Loading';
 import { debounce } from 'lodash';
-import {
-  fallbackMoviePoster,
-  image185w,
-  image342w,
-  image500w,
-  searchMovies,
-} from '../api/MovieDb';
+import { fallbackMoviePoster, image185w, searchMovies } from '../api/MovieDb';
+import { marginBT } from './HomeScreen';
 
 export type Prop = StackScreenProps<RootStackParamList, 'Search'>;
 
@@ -61,7 +56,7 @@ const SearchScreen: FC = () => {
   const handleTextDebounce = useCallback(debounce(handleSearch, 400), []);
 
   return (
-    <SafeAreaView className='bg-neutral-800 flex-1'>
+    <SafeAreaView className={`bg-neutral-800 flex-1 ${marginBT}`}>
       <StatusBar style='light' />
       <View className='mx-4 mb-3 flex-row justify-between items-center border border-neutral-500 rounded-full'>
         <TextInput

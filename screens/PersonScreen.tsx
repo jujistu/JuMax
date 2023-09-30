@@ -22,6 +22,7 @@ import {
   image342w,
 } from '../api/MovieDb';
 import { StatusBar } from 'expo-status-bar';
+import { marginBT } from './HomeScreen';
 
 const ios = Platform.OS === 'ios';
 
@@ -64,7 +65,7 @@ const PersonScreen: FC = () => {
 
   return (
     <ScrollView
-      className='flex-1 bg-neutral-900'
+      className={`flex-1 bg-neutral-900 ${marginBT}`}
       contentContainerStyle={{ paddingBottom: 20 }}
     >
       {/* back button */}
@@ -102,6 +103,7 @@ const PersonScreen: FC = () => {
               shadowRadius: 40,
               shadowOffset: { width: 0, height: 5 },
               shadowOpacity: 1,
+              elevation: 20,
             }}
           >
             <View className='items-center rounded-full overflow-hidden h-72 w-72 border-2 border-neutral-500'>
